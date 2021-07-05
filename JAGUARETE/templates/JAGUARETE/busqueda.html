@@ -1,0 +1,19 @@
+{% extends "JAGUARETE/layout.html" %}
+ {% block main %}
+      <main>
+         <section>
+            <article id="articuloSecundario">
+               <h2 class="centrar">Lista de productos "{{ iterable }}"</h2>
+                {% for producto in lista_productos %}
+
+                   {% if producto.categoria == iterable %}
+                     <p> {{ forloop.counter}}) {{producto.titulo}} :        {{producto.descripcion|truncatechars_html:80 }}</p>
+                   {% endif %}
+                 {% empty %}
+                         <h3>No hay elementos que mostrar</h3>
+                {% endfor %}
+
+            </article>
+         </section>
+      </main>
+{% endblock %}

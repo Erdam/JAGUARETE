@@ -1,0 +1,41 @@
+{% extends "JAGUARETE/layout.html" %}
+ {% block main %}
+
+      <main>
+            <section>
+                <article id="articuloSecundario">
+          {% if form.errors %}
+                <p>El usuario y la clave no coinciden, por favor intente nuevamente.</p>
+          {% endif %}
+          {% if next %}
+                {% if user.is_authenticated %}
+                         <p>Tu cuenta no tiene acceso a esta página. Para proceder, por favor inicie sesión con una cuenta que tenga acceso.</p>
+                {% else %}
+                   <p>Inicie sesión para ver esta página.</p>
+                {% endif %}
+          {% endif %}
+
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+               <div id="cajaFormulario">
+               <div class="cajaLabel">
+                  <td>{{ form.username.label_tag }}</td>
+                  <td>{{ form.username }}</td>
+               </div>
+               <div class="cajaLabel">
+                  <td>{{ form.password.label_tag }}</td>
+                  <td>{{ form.password }}</td>
+               </div>
+
+               <input type="submit" value="ACCEDER"/>
+               <input type="hidden" name="next" value="{{ next }}" />
+                </div>
+            </form>
+             {# Asume que configuras la vista password_reset en tu URLconf #}
+           <p><a href ="{% url 'password_reset' %}">¿Olvidó su contraseña?</a></p>
+          <p><a href =" {% url 'USUARIOS:registro' %}">Registrarse</a></p>
+                </article>
+         </section>
+      </main>
+{% endblock %}
+

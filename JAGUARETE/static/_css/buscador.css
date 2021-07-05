@@ -1,0 +1,36 @@
+@charset "utf-8";
+.buscador {
+	padding: 8px 15px 9px 2px;
+}
+
+input[type="search"] {
+	width: width: 250px;
+	background: var(--colorBlanco) url('../_img/iconos/icon-lupa.webp') no-repeat 10px center;
+	padding: 5px 5px 9px 0;
+	border-radius: 15em;
+	transition: all .5s;
+	outline: none;
+}
+
+input::placeholder {
+	padding-left: 50px;
+	transition: all .5s;
+}
+
+input:focus::-webkit-input-placeholder {
+	padding-left: 10px;
+}
+
+input[type="search"]:focus {
+	color: var(--colorTexto);
+	background: var(--colorBlanco);
+}
+
+@media(max-width:1024px) {
+	input[type="search"] {
+		display: none;
+	}
+}
+
+
+

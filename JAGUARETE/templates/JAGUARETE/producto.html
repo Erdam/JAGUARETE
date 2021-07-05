@@ -1,0 +1,26 @@
+{% extends "JAGUARETE/layout.html" %}
+ {% block main %}
+{% load static %}
+      <main>
+         <section>
+            <article id="articuloSecundario">
+               <h2 class="centrar"> {% if producto %} {{ producto.titulo }} {% else %} Titulo del producto{% endif %}</h2>
+               <div  class="flexCaja">
+                <div id="imagen"> {% if producto %}  <img src="{{producto.imagen.url}}" alt=""> {% else %}<img src="{% static '_img/iconos/foto.png' %}" alt="">{% endif %}</div>
+                <div id="descripcion"><h4>{% if producto %} {{ producto.categoria }} {% else %} Categoría{% endif %}</h4>
+                
+                {% if producto %} {{ producto.descripcion }} {% else %}
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at dapibus diam, varius lobortis dui. Vestibulum nunc justo, auctor in lorem eu, molestie tincidunt diam. Duis ut lectus turpis. Praesent at nunc eu purus euismod convallis. Phasellus placerat eget nisl quis cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nam tempus sodales turpis, ut accumsan diam consequat eget. Vivamus non dignissim lectus. Nam porta sapien tortor, non interdum odio porta et. Aliquam eleifend magna at ipsum dapibus, at vestibulum mi mattis. Etiam euismod diam eu augue aliquam, vel mollis orci porttitor. Sed vel rhoncus ex.</p>
+               <p>Pellentesque ultrices mauris lectus, eu condimentum elit malesuada in. Vivamus tincidunt elementum nisi, eu suscipit arcu vulputate vel. Nulla ornare eget enim eget convallis. Pellentesque sed elit vel purus molestie laoreet. Aliquam rutrum sem a est posuere, a porttitor arcu consectetur. In ut blandit justo. Aliquam consectetur finibus leo id varius. Donec erat nisl, consectetur eget neque non, vestibulum iaculis sapien. Quisque porta laoreet nunc et accumsan. Sed ipsum sapien, commodo vitae lacus et, fringilla porta elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a arcu ullamcorper neque blandit placerat quis ut tellus. Vivamus tincidunt mi consequat libero lacinia consectetur. Suspendisse et suscipit tellus, vitae convallis justo. Etiam vitae commodo nunc.</p>
+               <p>In ac elit tellus. Proin tristique eu tellus sed sodales. Morbi suscipit enim urna, sed maximus mauris porttitor porttitor. Maecenas at gravida ligula. Maecenas sit amet egestas ipsum. Vestibulum dignissim libero magna, quis hendrerit augue venenatis sit amet. Quisque tincidunt sed risus quis sodales. Aliquam vehicula, metus volutpat ullamcorper suscipit, leo lorem ornare sem, id scelerisque ligula justo vitae diam. Maecenas vel est quis urna pretium consectetur sed at elit. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                {% endif %}
+                    <p></p>
+           <div id="precio">Precio{% if producto %} ${{ producto.precio }} {% else %} $xxxxx{% endif %} <input type="button" value="Agregar al carrito"></div>
+             
+                </div>
+                
+                </div>
+            </article>
+         </section>
+      </main>
+ {% endblock %}

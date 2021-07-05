@@ -1,0 +1,67 @@
+<!doctype html>
+{% load static %}
+<html lang="es">
+   <head>
+      <title>{{ titulo }}</title>
+      <meta charset="utf-8">
+      <meta name="author" content="Erdam Techera">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+      <link rel="stylesheet"  href="{% static '_css/estilo.css' %}">
+      <link rel="icon" href="{% static '_img/favicon.ico' %}">
+
+   </head>
+   <body>
+      <header>
+         <div id="encabezado">
+            <a href="{% url 'url:index' %}" >
+               <h1>JAGUARETE KAA S.A.</h1>
+            </a>
+            <ul >
+               {% if user.is_authenticated %}
+               {% else %}
+               <li><a href="{% url 'login'%}" class="seleccion">LOGIN</a></li>
+               <li><a href="{% url 'USUARIOS:registro' %}" class="seleccion">REGISTRO</a></li>
+                {% endif %}
+               <li><a href="{% url 'url:carrito' %}" class="seleccion">CARRITO</a></li>
+            </ul>
+         </div>
+         <input type="checkbox" id="btn_menu">
+         <label for="btn_menu"> <img src="{% static '_img/iconos/icon-menu.png' %}" alt=""></label>
+          {% if user.is_authenticated %}
+         <div id="usuario">{{ user.get_username }}<p><a href="{% url 'logout'%}">Salir</a></p></div>
+          {% else %}
+
+        {% endif %}
+         <nav class="menu">
+            <ul>
+               <li><a href="{% url 'url:index' %}" class="seleccion">HOME</a></li>
+               <li>
+                  <a href="" class="seleccion">CATEGORIAS</a>
+                  {% if user.is_authenticated %}
+                  {% if categorias %}
+                  <ul class="submenu">
+                      {% for categoria in categorias %}
+                         <li><a href="{% url 'url:busqueda' categoria.id %}" class="seleccion">{{categoria.nombre}}</a></li>
+                       {% endfor %}
+                  </ul>
+                   {% endif %}
+                  {% endif %}
+               </li>
+               <li><a href="{% url 'url:acercaDe' %}" class="seleccion">ACERCA DE ...</a></li>
+               <li><a href="mailto:soyelcorreo@jaguarete.com" class="seleccion">CONTACTO</a></li>
+               <li><a href="{% url 'url:producto' %}" class="seleccion">NUEVO PRODUCTO</a></li>
+               <li>
+                  <form class="buscador">
+                     <input type="search" name="buscar" placeholder="Buscar">
+                  </form>
+               </li>
+            </ul>
+         </nav>
+      </header>
+         {% block main %}
+         {% endblock %}
+    <footer> <p>Autor: Erdam Techera</p>
+   <p>Copyright © 2021 | Erdam techera </p>
+   <p><a href="mailto:erdam02@hotmail.com">erdam02@hotmail.com</a></p></footer>
+   </body>
+</html>

@@ -1,0 +1,88 @@
+@charset "utf-8";
+@import url('reset.css');
+@import url('https://fonts.googleapis.com/css?family=Lemonada&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two&display=swap');
+@import url('menu.css');
+@import url('buscador.css');
+@import url('articulos.css');
+@import url('productos.css');
+@import url('formulario.css');
+:root {
+	--colorEncabezado: rgb(79, 113, 36);
+	--colorPagina: rgb(142, 197, 73);
+	--colorTexto: #77837F;
+	--colorFooter: rgba(142, 197, 73, .8);
+	--colorBotonHover: rgba(142, 197, 73, .5);
+	--colorBlanco: white;
+	--menuUser: rgba(142, 197, 73, .8);
+	--transparente:rgba(0, 0, 0, 0.75);
+}
+
+body {
+	font-family: 'Lemonada', cursive;
+}
+
+header {
+	background: var(--colorPagina);
+     box-shadow: 4px 13px 17px -10px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 4px 13px 17px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 13px 17px -10px rgba(0,0,0,0.75);
+	width: 100%;
+}
+
+main {
+	width: 100%;
+	padding-top: 1%;
+	padding-bottom: .3%;
+	:
+}
+
+section {
+	width: 90%;
+	margin: 0 auto 1% auto;
+}
+
+footer {
+	position: relative;
+	width: 100%;
+	height: 110px;
+	text-align: center;
+	padding: .3%;
+	background: var(--colorFooter);
+	font-family: Verdana, Geneva, sans-serif;
+	color: var(--colorBlanco);
+}
+footer a {
+	font-size:12px;
+	color:var(--colorBlanco);
+}
+#articuloSecundario p {
+	padding-bottom: 13px;
+	padding: 10px;
+}
+
+#articuloSecundario .borrar {
+	float: right;
+	text-align: center;
+	text-decoration: none;
+	width: 30px;
+	height: 25px;
+	padding-top: 4px;
+	margin-top: -5px;
+	border-radius: 50%;
+	border: 1px solid var(--colorTexto);
+}
+
+#boton {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+#boton input[type="button"] {
+	margin: 10px;
+}
+
+@media(min-width:1024px) {}
+
+
+

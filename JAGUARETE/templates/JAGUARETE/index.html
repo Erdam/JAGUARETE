@@ -1,0 +1,64 @@
+{% extends "JAGUARETE/layout.html" %}
+ {% block main %}
+{% load static %}
+      <main>
+         <section id="articuloPrincipal">
+             {% if destacados %}
+                 {% for destacados in destacados %}
+                    <article class="cajaArticulo">
+                       <h2>{{destacados.titulo}}</h2>
+                       <img src="{{destacados.imagen.url}}" alt=""><input  class="alinear" type="button" value="Ver" onclick="location.href='{% url 'url:productos' destacados.id %}'">
+                    </article>
+                 {% empty %}
+                     <h3>No hay elementos que mostrar</h3>
+                 {% endfor %}
+             {% endif %}
+         </section>
+         <section>
+            <article id="articuloSecundario">
+               <h3>Más productos</h3>
+               <ul>
+               {% if lista_productos %}
+                     {% for producto in lista_productos %}
+                        <li><p> {{producto.titulo}} :        {{producto.descripcion|truncatechars_html:55 }}</p></li>
+                     {% empty %}
+                         <h3>No hay elementos que mostrar</h3>
+                     {% endfor %}
+               {% endif %}
+               </ul>
+
+            </article>
+         </section>
+
+   <div id="paginacion">
+      <nav>
+         <ul>
+         {% if lista_productos.has_previous %}
+            <li>
+               <a href="?actual=1">Primera</a>
+            </li>
+            <li>
+               <a href="?actual={{lista_productos.previous_page_number}}">&laquo;</a>
+            </li>
+         {% endif %}
+             {% for pagina in  paginas %}
+                  <li  >
+                   <a  href="?actual={{pagina}}" {% if pagina_actual == pagina %} class=" active" {% endif %}>{{pagina}}</a>
+                   </li>
+
+             {% endfor %}
+         {% if lista_productos.has_next %}
+            <li>
+               <a href="?actual={{lista_productos.next_page_number}}">&raquo;</a>
+            </li>
+            <li>
+               <a href="?actual={{lista_productos.paginator.num_pages}}">Última</a>
+            </li>
+         {% endif %}
+         </ul>
+      </nav>
+   </div>
+</main>
+ {% endblock %}
+
+

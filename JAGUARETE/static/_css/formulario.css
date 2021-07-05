@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+section form {
+	width: 95%;
+	margin: 2% auto;
+	padding: 2%;
+}
+
+form #cajaFormulario {
+	margin: 20px;
+}
+
+form .cajaLabel {
+	display: block;
+}
+
+.cajaLabel label {
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+}
+
+.cajaLabel input[type=text],
+.cajaLabel input[type=password] {
+	float: right;
+	width: 70%
+}
+
+#cajaFormulario input[type=submit] {
+	display: block;
+	cursor: pointer;
+	border-radius: 5px;
+	float: right;
+}
+
+#cajaFormulario input[type=submit]:hover {
+	color: var(--colorBlanco);
+	background: var(--colorEncabezado);
+}
+
+@media(max-width:768px) {
+	.cajaLabel {
+		text-align: center;
+	}
+	.cajaLabel input[type=text],
+	.cajaLabel input[type=password] {
+		width: 90%;
+		margin: 5px;
+		float: none;
+	}
+	#cajaFormulario input[type=submit] {
+		display: block;
+		margin: 5% auto;
+		width: 92%;
+		float: none;
+	}
+}

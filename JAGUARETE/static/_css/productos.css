@@ -1,0 +1,98 @@
+@charset "utf-8";
+.centrar {
+	text-align: center;
+}
+
+.flexCaja {
+	display: flex;
+	width: 100%;
+}
+
+#imagen {
+	width: 40%;
+}
+
+#imagen img {
+	object-fit: contain;
+	width: 90%;
+	margin: 4.5%;
+}
+
+#descripcion {
+	width: 70%;
+	padding-left: 2%;
+	text-align: justify;
+	texto-justify: inter-palabra;
+}
+
+#descripcion p {
+	font-size: .9em;
+}
+
+#descripcion h4 {
+	font-size: 1.2em;
+}
+
+#precio {
+	width: 100%;
+	padding-right: 3%;
+}
+
+#precio input[type="button"] {
+	float: right;
+}
+
+#paginacion {
+	width: 90%;
+	margin: auto;
+	padding: .9%;
+}
+
+#paginacion ul {
+	position: relative;
+	width: 150px;
+	;
+	padding: 0;
+	display: flex;
+	margin: auto;
+}
+
+#paginacion li {
+	list-style: none;
+}
+
+#paginacion a {
+	color: var(--colorTexto);
+	padding: 8px 16px;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+}
+
+#paginacion a.active {
+	background: var(--colorPagina);
+	border-radius: 5px;
+	color: white;
+}
+
+#paginacion a:hover:not(.active) {
+	background: var(--colorFooter);
+}
+
+@media(max-width:768px) {
+	.flexCaja {
+		display: block;
+	}
+	#imagen {
+		width: 95%;
+	}
+	#descripcion {
+		margin-top: -25px;
+		width: 93%;
+	}
+	#paginacion ul {
+		padding: 20PX;
+		width: 90%;
+	}
+}
